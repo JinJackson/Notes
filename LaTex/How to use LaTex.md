@@ -15,9 +15,15 @@ Letax基本语法
 
 主要进行一些全局内容的设置
 
-+ \documentclass{}
++ \documentclass[]{}
 
-  描述本篇文档的类型：常用的有article, book, report, letter等
+  文档类：描述本篇文档的类型，常用的有article, book, report, letter等
+
+  []中代表可选参数
+
+  eg.
+
+  [10pt]代表设置normalize字体大小，即默认字体大小，一般只有10-12pt
 
 + \title{}
 
@@ -38,6 +44,10 @@ Letax基本语法
 + \date{}
 
   输入时间，可以使用\date{\today}代表今天
+
++ \quad
+
+  表示空格
 
 + \newcommand
 
@@ -215,13 +225,13 @@ eg.
 
 在LaTex中，一个字体有5种属性：
 
-### 4.1 **字体编码：**
+### 4.1 **字体编码**
 
 + 正文字体编码：OT1、T1、EU1等
 
 + 数字字体编码：OML、OMS、OMX等
 
-### 4.2 **字体族**：
+### 4.2 **字体族**
 
 + 罗马字体：笔画起笔处有装饰
 + 无衬线字体：笔画起笔处无装饰
@@ -247,13 +257,95 @@ eg.
 
 ![image-20210326103941410](D:\Dev\typoraspace\notes\LaTex\imgs\fig9.png)
 
-### 4.3 **字体系列：**
+```latex
+    %可以使用{}限定字体作用范围
+    {\rmfamily I'm Roman Family}
+    
+    {\sffamily I'm Another}
+    
+    I am Normal
+```
+
+效果：
+
+![image-20210326104826339](D:\Dev\typoraspace\notes\LaTex\imgs\fig10.png)
+
+### 4.3 **字体系列**
   + 粗细
   + 宽度
-### 4.4 **字体形状：**
+
+eg.
+
+```latex
+%中等大小字体
+\textmd{This is a Medium size}
+{\mdseries This is a Medium size}
+
+%加粗
+\textbf{This is BoldFace}
+{\bfseries This is BoldFace }
+```
+
+效果图：
+
+![image-20210326105816821](D:\Dev\typoraspace\notes\LaTex\imgs\fig11.png)
+
+### 4.4 **字体形状**
   + 直立
   + 斜体
   + 伪斜体
   + 小型大写
 
-### 4.5 **字体大小：**
+eg.
+
+```
+%字体形状[直立，斜体，伪斜体，小型大写]
+
+\textup{This is 直立up}
+{\upshape This is 直立up}
+
+\textit{This is 斜体italic}
+{\itshape This is 斜体italic}
+
+\textsl{This is 伪斜体Slanted}
+{\slshape This is 伪斜体Slanted}
+
+\textsc{This is 小型大写small caps}
+{\scshape This is 小型大写small caps}
+```
+
+效果图：
+
+![image-20210326112401564](D:\Dev\typoraspace\notes\LaTex\imgs\fig12.png)
+
++ 中文字体设置
+
+  需要引入ctex包
+
+  ```latex
+  \usepackage{ctex}
+  
+  {\songti 这是宋体} {\heiti 这是黑体} {\fangsong 这是仿宋} {\kaishu 这是楷书}
+  ```
+
+  
+
+### 4.5 **字体大小**
+
+```latex
+%字体大小设置
+{\tiny  Hello}
+{\scriptsize  Hello}
+{\footnotesize  Hello}
+{\small  Hello}
+{\normalsize  Hello}
+{\large  Hello}
+{\Large  Hello}
+{\LARGE  Hello}
+{\huge  Hello}
+{\Huge Hello}
+```
+
+效果：
+
+![image-20210326124637033](D:\Dev\typoraspace\notes\LaTex\imgs\fig13.png)
